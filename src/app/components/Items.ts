@@ -32,6 +32,30 @@ export const INGREDIENTS: Ingredient[] = [
     fat: 1.5,
   },
   {
+    id: 9,
+    name: "Tortilla",
+    category: "Bread" as Category,
+    calories: 120,
+    protein: 3,
+    fat: 2,
+  },
+  {
+    id: 6,
+    name: "Ketchup",
+    category: "Sauce" as Category,
+    calories: 20,
+    protein: 0,
+    fat: 0,
+  },
+  {
+    id: 5,
+    name: "Mustard",
+    category: "Sauce" as Category,
+    calories: 15,
+    protein: 0,
+    fat: 0,
+  },
+  {
     id: 3,
     name: "Nutella",
     category: "Spread" as Category,
@@ -48,22 +72,6 @@ export const INGREDIENTS: Ingredient[] = [
     fat: 9,
   },
   {
-    id: 5,
-    name: "Mustard",
-    category: "Sauce" as Category,
-    calories: 15,
-    protein: 0,
-    fat: 0,
-  },
-  {
-    id: 6,
-    name: "Ketchup",
-    category: "Sauce" as Category,
-    calories: 20,
-    protein: 0,
-    fat: 0,
-  },
-  {
     id: 7,
     name: "Ice Cream",
     category: "Topping" as Category,
@@ -78,14 +86,6 @@ export const INGREDIENTS: Ingredient[] = [
     calories: 160,
     protein: 5,
     fat: 13,
-  },
-  {
-    id: 9,
-    name: "Tortilla",
-    category: "Bread" as Category,
-    calories: 120,
-    protein: 3,
-    fat: 2,
   },
 ];
 
