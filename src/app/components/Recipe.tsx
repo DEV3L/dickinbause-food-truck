@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 
+import Footer from "./Footer";
 import { CATEGORY_EMOJIS, INGREDIENTS, MENU_ITEMS } from "./Items";
 import { StyledChip } from "./MenuItemCard";
 
@@ -82,7 +83,7 @@ export default function MenuBuilder() {
         overflow: "hidden",
       }}
     >
-      {/* Bun Container - Made responsive */}
+      {/* Bun Container - Updated with display flex and flex direction */}
       <Box
         sx={{
           position: "fixed",
@@ -90,26 +91,30 @@ export default function MenuBuilder() {
           top: 0,
           bottom: 0,
           transform: "translateX(-50%)",
-          width: "100%", // Changed from 90%
+          width: "100%",
           maxWidth: "1200px",
           backgroundColor: "#FFE4B5",
-          borderLeft: { xs: "20px", md: "40px" }, // Responsive border
-          borderRight: { xs: "20px", md: "40px" }, // Responsive border
+          borderLeft: { xs: "20px", md: "40px" },
+          borderRight: { xs: "20px", md: "40px" },
           borderColor: "#FFD700",
           boxShadow: "0 0 50px rgba(0,0,0,0.2)",
           overflowY: "auto",
           zIndex: 1,
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        {/* Main content container */}
+        {/* Main content container - Added flex-grow */}
         <Box
           sx={{
             maxWidth: 1000,
             mx: "auto",
-            px: { xs: 1, sm: 2 }, // Responsive padding
-            pt: { xs: 3, sm: 6 }, // Responsive padding
+            px: { xs: 1, sm: 2 },
+            pt: { xs: 3, sm: 6 },
             pb: 4,
             position: "relative",
+            width: "100%",
+            flexGrow: 1,
           }}
         >
           {/* Food Truck Header - Made responsive */}
@@ -150,7 +155,7 @@ export default function MenuBuilder() {
                   justifyContent: "center",
                   gap: 2,
                   fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
-                  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
+                  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
                 }}
               >
                 <LocalDiningIcon sx={{ fontSize: { xs: 24, sm: 40 } }} />
@@ -163,7 +168,7 @@ export default function MenuBuilder() {
                   color: "#FFE66D",
                   textShadow: "1px 1px 2px rgba(0,0,0,0.2)",
                   fontSize: { xs: "1.1rem", sm: "1.5rem" },
-                  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
+                  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
                 }}
               >
                 The Biggest Dogs in Town! 🌭
@@ -200,7 +205,7 @@ export default function MenuBuilder() {
                 sx: {
                   fontWeight: "bold",
                   fontSize: { xs: "1.4rem", sm: "1.8rem" },
-                  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
+                  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
                 },
               }}
               sx={{
@@ -232,7 +237,9 @@ export default function MenuBuilder() {
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
                     <StyledChip
-                      label={`${CATEGORY_EMOJIS[ingredient.category]} ${ingredient.name}`}
+                      label={`${CATEGORY_EMOJIS[ingredient.category]} ${
+                        ingredient.name
+                      }`}
                       onClick={() => toggleIngredient(ingredient)}
                       className={
                         selectedIngredients.some((i) => i.id === ingredient.id)
@@ -309,9 +316,7 @@ export default function MenuBuilder() {
                             >
                               {item.name} - {item.foodEmojis}
                             </Typography>
-                            <Typography
-                              variant="body2"
-                            >
+                            <Typography variant="body2">
                               {item.restaurant}
                             </Typography>
                           </Box>
@@ -326,9 +331,7 @@ export default function MenuBuilder() {
                           />
                         </Box>
 
-                        <Typography
-                          variant="body2"
-                        >
+                        <Typography variant="body2">
                           {item.description}
                         </Typography>
 
@@ -355,6 +358,9 @@ export default function MenuBuilder() {
             </CardContent>
           </Card>
         </Box>
+
+        {/* Footer will now stick to bottom */}
+        <Footer />
       </Box>
     </Box>
   );
